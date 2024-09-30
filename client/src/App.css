@@ -1,5 +1,260 @@
-*{
+/***    General     ***/
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #e94560; /* Vibrant pink text color */
+}
+
+.m-5-auto {
+  margin: 5rem auto;
+}
+
+.primary-button {
+  margin-top: 5rem;
+  margin-right: 1rem;
+  padding: .6rem;
+  width: 10rem;
+  background: #0f3460; /* Dark blue button */
+  border: none;
+  color: #16c79a; /* Bright teal text */
+  font-size: 1.2rem;
+  transition: all .5s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.primary-button:hover {
+  background: #16c79a; /* Bright teal on hover */
+  color: #0f3460; /* Dark blue text on hover */
+}
+
+/***    Landing Page     ***/
+.main-title,
+.main-para {
+  color: #f1f1f1;
+}
+
+.main-title {
+  padding-top: 10rem;
+  font-size: 5rem;
+  font-family: "Calibri", sans-serif;
+  text-transform: uppercase;
+  color: #16c79a; /* Bright teal */
+}
+
+.main-para {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: #e94560; /* Vibrant pink */
+}
+
+#reg_btn span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#reg_btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#reg_btn:hover span {
+  padding-right: 25px;
+}
+
+#reg_btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/***    Login Page     ***/
+h2 {
+  font-weight: 300;
+  color: #16c79a; /* Bright teal */
+}
+
+form {
+  display: inline-block;
+  background: #233142; /* Dark blue-grey */
+  border: 1px solid #16c79a; /* Bright teal border */
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem 0 1rem 0;
+}
+
+form label {
+  float: left;
+  font-size: .9rem;
+  margin: 0;
+  padding: 0;
+  color: #e94560; /* Vibrant pink */
+}
+
+.right-label {
+  float: right;
+  cursor: pointer;
+  color: #16c79a; /* Bright teal */
+}
+
+input {
+  width: 15rem;
+  padding: .3rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #f1f1f1;
+  color: #1a1a2e; /* Dark blue text */
+}
+
+#sub_btn {
+  display: block;
+  width: 100%;
+  padding: .3rem;
+  border: none;
+  background: #e94560; /* Vibrant pink */
+  color: #f1f1f1;
+  border-radius: 3px;
+}
+
+#sub_btn:hover {
+  background: #16c79a; /* Bright teal on hover */
+  transition: all .5s;
+}
+
+footer p {
+  margin: 0;
+  font-size: .9rem;
+  color: #f1f1f1;
+}
+
+/***    Register Page     ***/
+#checkbox {
+  width: 1rem;
+}
+
+form span {
+  font-size: .8rem;
+  color: #16c79a; /* Bright teal */
+}
+
+#reset_pass_lbl {
+  float: left;
+}
+
+
+
+/***    Home Page     ***/
+.home-page-container {
+  text-align: center;
+  padding: 2rem;
+  color: #f1f1f1;
+}
+
+.home-page-title {
+  color: #16c79a; /* Bright teal */
+  margin-bottom: 2rem;
+}
+
+.friend-search, .friends-list {
+  background: #233142; /* Dark blue-grey */
+  border: 1px solid #16c79a; /* Bright teal border */
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.friend-search h2, .friends-list h2 {
+  color: #e94560; /* Vibrant pink */
+  margin-bottom: 1rem;
+}
+
+.friend-search form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.friend-search input {
+  flex-grow: 1;
+  margin-right: 1rem;
+  max-width: 300px;
+}
+
+.search-results {
+  text-align: left;
+}
+
+.search-results h3 {
+  color: #16c79a; /* Bright teal */
+  margin-bottom: 0.5rem;
+}
+
+.search-results ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-results li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-results .primary-button {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  margin: 0;
+}
+
+/* New styles for friend boxes */
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.friend-box {
+  background-color: #0f3460; /* Dark blue */
+  color: #16c79a; /* Bright teal */
+  border: 2px solid #16c79a;
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.friend-box:hover {
+  background-color: #16c79a; /* Bright teal */
+  color: #0f3460; /* Dark blue */
+}
+
+@media screen and (max-width: 480px) {
+  .friend-search form {
+      flex-direction: column;
+  }
+
+  .friend-search input {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      max-width: none;
+  }
+
+  .friends-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
 }
