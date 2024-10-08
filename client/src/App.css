@@ -68,7 +68,7 @@ body {
 }
 
 .primary-button {
-  background-color: #6200ee; /* Primary button color */
+  background-color: #4a90e2; /* Primary button color */
   color: #ffffff; /* Button text color */
   padding: 15px 30px; /* Button padding */
   border: none;
@@ -79,7 +79,7 @@ body {
 }
 
 .primary-button:hover {
-  background-color: #3700b3; /* Darker shade on hover */
+  background-color: #3a80d2; /* Darker shade on hover */
 }
 
 
@@ -442,7 +442,7 @@ body {
 }
 
 .friend-box.selected {
-  background-color: #6200ee; /* Highlight selected friend */
+  background-color: #4a90e2; /* Highlight selected friend */
 }
 
 /* Chat Container */
@@ -491,7 +491,7 @@ body {
 }
 
 .dropdown-item:hover {
-  background-color: #6200ee;
+  background-color: #4a90e2;
 }
 
 
@@ -499,36 +499,6 @@ body {
 /*** Forgot Password Page ***/
 .forgot-password-content {
   max-width: 400px;
-}
-/*** Shared Styles for pages with background image ***/
-.login-container,
-.register-container,
-.forgot-password-container,
-.home-container {
-  width: 100%;
-  min-height: 100vh;
-  background-image: url('./components/images/BG_.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; /* This keeps the background fixed while scrolling */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.login-content,
-.register-content,
-.forgot-password-content,
-.home-content {
-  background-color: rgba(26, 26, 46, 0.85);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(22, 199, 154, 0.6);
-  width: 100%;
-  max-width: 500px;
-  margin: 2rem 0; /* Add some vertical margin */
 }
 
 /* Ensure the body allows scrolling if content is taller than the viewport */

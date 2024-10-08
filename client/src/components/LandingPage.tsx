@@ -5,7 +5,7 @@ const LandingPage = () => {
   return (
     <div className="landing-container">
       <div className="content-wrapper">
-        <h1 className="main-title">ChatApp</h1> {/* Cool app name */}
+        <h1 className="main-title">ChatApp</h1> 
         <p className="main-para">
           Connect with friends through instant messaging and video calls!
         </p>

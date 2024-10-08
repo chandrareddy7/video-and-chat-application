@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, KeyboardEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEllipsisV } from 'react-icons/fa';
 
@@ -22,7 +22,6 @@ const HomePage: React.FC = () => {
 
     const handleSearch = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Simulating a search functionality
         const results: User[] = friends.filter(user => user.username.toLowerCase().includes(searchTerm.toLowerCase()));
         setSearchResults(results);
     };
@@ -40,10 +39,18 @@ const HomePage: React.FC = () => {
         setShowMenu(!showMenu);
     };
 
+    const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSearch({ preventDefault: () => {} } as FormEvent<HTMLFormElement>);
+        }
+    };
+
     return (
         <div className="home-page-container">
             <div className="sidebar">
-                <h1 className="main-title">Welcome</h1>
+                <h1 className="app-title">ChatApp</h1> {/* Changed the title here */}
+
                 <div className="friend-search">
                     <form onSubmit={handleSearch} className="search-form">
                         <input
@@ -52,11 +59,7 @@ const HomePage: React.FC = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Search"
                             className="input-field"
-                            onKeyPress={(e) => {
-                                if (e.key === 'Enter') {
-                                    handleSearch(e);
-                                }
-                            }}
+                            onKeyPress={handleKeyPress} 
                         />
                     </form>
 
@@ -101,9 +104,7 @@ const HomePage: React.FC = () => {
                 {selectedFriend ? (
                     <div className="chat-window">
                         <h2>Chat with {selectedFriend.username}</h2>
-                        {/* Here you can display the messages */}
                         <div className="messages">
-                            {/* Placeholder for messages */}
                             <p>No messages yet!</p>
                         </div>
                     </div>
