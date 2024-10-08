@@ -1,26 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
 
-import '../App.css'
+const ForgotPasswordPage = () => {
+  return (
+    <div className="form-container">
+      <div className="form-content">
+        <h2>Reset Your Password</h2>
+        <form>
+          <p>
+            <label>Email address</label><br />
+            <input type="email" name="email" required />
+          </p>
+          <p>
+            <button className="submit-btn" type="submit">Send Reset Link</button>
+          </p>
+        </form>
+        <footer>
+          <p>Remember your password? <Link to="/login">Login</Link></p>
+          <p><Link to="/">Back to Homepage</Link></p>
+        </footer>
+      </div>
+    </div>
+  );
+};
 
-export default function ForgetPasswordPage() {
-    return (
-        <div className="text-center m-5-auto">
-            <h2>Reset your password</h2>
-            <h5>Enter your email address and we will send you a new password</h5>
-            <form action="/login">
-                <p>
-                    <label id="reset_pass_lbl">Email address</label><br/>
-                    <input type="email" name="email" required />
-                </p>
-                <p>
-                    <button id="sub_btn" type="submit">Send password reset email</button>
-                </p>
-            </form>
-            <footer>
-                <p>First time? <Link to="/register">Create an account</Link>.</p>
-                <p><Link to="/">Back to Homepage</Link>.</p>
-            </footer>
-        </div>
-    )
-}
+export default ForgotPasswordPage;
