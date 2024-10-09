@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaFacebook, FaGoogle, FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 
 const LoginRegisterForm: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'login' | 'register'>('login');
@@ -38,10 +38,7 @@ const LoginForm: React.FC<FormProps> = ({ setActiveTab }) => {
     <form className="login-form">
       <h2>Sign in with:</h2>
       <div className="social-buttons">
-        <button type="button" className="social-button"><FaFacebook /></button>
         <button type="button" className="social-button"><FaGoogle /></button>
-        <button type="button" className="social-button"><FaTwitter /></button>
-        <button type="button" className="social-button"><FaGithub /></button>
       </div>
       <p className="or-divider">or:</p>
       <input type="text" placeholder="Email or username" />
@@ -66,10 +63,7 @@ const RegisterForm: React.FC<FormProps> = ({ setActiveTab }) => {
     <form className="register-form">
       <h2>Sign up with:</h2>
       <div className="social-buttons">
-        <button type="button" className="social-button"><FaFacebook /></button>
         <button type="button" className="social-button"><FaGoogle /></button>
-        <button type="button" className="social-button"><FaTwitter /></button>
-        <button type="button" className="social-button"><FaGithub /></button>
       </div>
       <p className="or-divider">or:</p>
       <input type="text" placeholder="Name" />
