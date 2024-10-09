@@ -1,5 +1,508 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@700&display=swap');
+
+/***    General     ***/
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #1a1a2e;
+  color: #f0f0f0; /* Light gray for better readability */
+}
+
+.m-5-auto {
+  margin: 5rem auto;
+}
+
+.primary-button {
+  margin-top: 5rem;
+  margin-right: 1rem;
+  padding: .6rem;
+  width: 10rem;
+  background: #0f3460; /* Dark blue button */
+  border: none;
+  color: #16c79a; /* Bright teal text */
+  font-size: 1.2rem;
+  transition: all .5s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.primary-button:hover {
+  background: #16c79a; /* Bright teal on hover */
+  color: #0f3460; /* Dark blue text on hover */
+}
+
+
+/***    Landing Page     ***/
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text color */
+}
+
+.content-wrapper {
+  text-align: center;
+}
+
+.main-title {
+  font-size: 3rem; /* Large title */
+  margin-bottom: 20px;
+}
+
+.main-para {
+  font-size: 1.5rem; /* Medium paragraph size */
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.primary-button {
+  background-color: #4a90e2; /* Primary button color */
+  color: #ffffff; /* Button text color */
+  padding: 15px 30px; /* Button padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.primary-button:hover {
+  background-color: #3a80d2; /* Darker shade on hover */
+}
+
+
+/***    Login Page     ***/
+/* General body styling */
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Login/Register Container */
+.login-register-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow for form box */
+  position: relative; /* Relative positioning for active tab indicator */
+  border: 1px solid #444; /* Border for better distinction */
+}
+
+/* Tab buttons (Login/Register) */
+.tab-buttons {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden; /* To prevent content spilling out of border-radius */
+}
+
+/* Active tab indicator */
+.tab-buttons::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 50%;
+  background-color: #4a90e2;
+  transition: transform 0.3s ease;
+}
+
+/* Apply this based on active class in your component */
+.tab-button.active ~ .tab-buttons::before {
+  transform: translateX(100%);
+}
+
+
+/* Individual tab buttons */
+.tab-button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background-color: #3c3c3c;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Active tab button styling */
+.tab-button.active {
+  background-color: #4a90e2;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Forms */
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form header */
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+/* Social buttons */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Individual social button */
+.social-button {
+  background-color: transparent;
+  border: 1px solid #4c4c4c;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.social-button:hover {
+  background-color: #3c3c3c;
+}
+
+/* Divider text */
+.or-divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #888;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: #3c3c3c;
+  border: 1px solid #4c4c4c;
+  color: #ffffff;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #8c8c8c;
+}
+
+/* Form options (Remember me, Terms, etc.) */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.remember-me,
+.terms-agreement {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.forgot-password {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Submit button */
+.submit-button {
+  background-color: #4a90e2;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #3a80d2;
+}
+
+/* Form switch link (between Login/Register) */
+.switch-form-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.switch-form-link a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.switch-form-link a:hover {
+  text-decoration: underline;
+}
+
+/***    Register Page     ***/
+/* Shared Styles for Login, Register, and Forgot Password pages */
+.form-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+form {
+  width: 100%;
+}
+
+form p {
+  margin-bottom: 1rem;
+}
+
+label {
+  color: #ffffff;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3c3c3c;
+  border: 1px solid #4c4c4c;
+  color: #ffffff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #8c8c8c;
+}
+
+button.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4a90e2;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+  background-color: #3a80d2;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/***    Home Page     ***/
+/* Overall dark theme */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Home Page Container */
+.home-page-container {
+  display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #1e1e1e;
+  width: 25%;
+  padding: 20px;
+  border-right: 1px solid #333;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative; /* Positioning context for the menu */
+}
+
+/* App Title */
+.app-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Search Bar */
+.search-form {
+  display: flex;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #333;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+/* Results List */
+.results-list {
+  list-style: none;
+  padding: 0;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #222;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+/* Friends List */
+.friends-list {
+  margin-top: 20px;
+}
+
+.friend-box {
+  padding: 15px;
+  background-color: #222;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.friend-box.selected {
+  background-color: #4a90e2; /* Highlight selected friend */
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  padding: 20px;
+  background-color: #1e1e1e;
+}
+
+.chat-window {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.empty-chat {
+  text-align: center;
+  color: #999;
+}
+
+/* Menu Icon */
+.menu-icon {
+  position: absolute; /* Positioned absolutely */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  cursor: pointer;
+}
+
+/* Dropdown Menu */
+.menu-dropdown {
+  position: absolute;
+  background-color: #333;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100px;
+  right: 20px; /* Align with the menu icon */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #4a90e2;
+}
+
+
+
+/*** Forgot Password Page ***/
+.forgot-password-content {
+  max-width: 400px;
+}
+
+/* Ensure the body allows scrolling if content is taller than the viewport */
+body {
+  min-height: 100vh;
+  overflow-y: auto;
 }
