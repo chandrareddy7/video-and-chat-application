@@ -1,37 +1,38 @@
-import React, { useState, FormEvent, KeyboardEvent } from 'react';
+import React, { useState, FormEvent, KeyboardEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEllipsisV } from 'react-icons/fa';
-
-interface User {
-    id: number;
-    username: string;
-}
+import axios from 'axios';
+import { Chat } from '../index.d.js';
 
 const HomePage: React.FC = () => {
+
+    const [chats, setChats] = useState<Chat[]>([])
+
+    const fetchChats = async () => {
+        const {data} = await axios.get('/api/chat')
+        setChats(data);
+    }
+
+    useEffect(() => {fetchChats()}, [])
     const [searchTerm, setSearchTerm] = useState<string>('');
-    const [friends, setFriends] = useState<User[]>([
-        { id: 1, username: 'friend1' },
-        { id: 2, username: 'friend2' },
-        { id: 3, username: 'friend3' },
-        { id: 4, username: 'friend4' },
-        { id: 5, username: 'friend5' },
-    ]);
-    const [searchResults, setSearchResults] = useState<User[]>([]);
-    const [selectedFriend, setSelectedFriend] = useState<User | null>(null);
+    const [searchResults, setSearchResults] = useState<Chat[]>([]);
+    const [selectedFriend, setSelectedFriend] = useState<Chat | null>(null);
     const [showMenu, setShowMenu] = useState<boolean>(false);
 
     const handleSearch = (e: FormEvent<HTMLFormElement>) => {
+        // TODO: Handle real time search
         e.preventDefault();
-        const results: User[] = friends.filter(user => user.username.toLowerCase().includes(searchTerm.toLowerCase()));
+        const results: Chat[] = chats.filter(chat => chat.chatName.toLowerCase().includes(searchTerm.toLowerCase()));
         setSearchResults(results);
     };
 
-    const addFriend = (newFriend: User) => {
-        setFriends([...friends, newFriend]);
-        setSearchResults(searchResults.filter(user => user.id !== newFriend.id));
-    };
+    // TODO: Handle adding friend
+    // const addFriend = (newFriend: User) => {
+    //     setFriends([...friends, newFriend]);
+    //     setSearchResults(searchResults.filter(user => user.id !== newFriend.id));
+    // };
 
-    const handleFriendClick = (friend: User) => {
+    const handleFriendClick = (friend: Chat) => {
         setSelectedFriend(friend);
     };
 
@@ -49,7 +50,7 @@ const HomePage: React.FC = () => {
     return (
         <div className="home-page-container">
             <div className="sidebar">
-                <h1 className="app-title">ChatApp</h1> {/* Changed the title here */}
+                <h1 className="app-title">Collabrative</h1>
 
                 <div className="friend-search">
                     <form onSubmit={handleSearch} className="search-form">
@@ -66,9 +67,9 @@ const HomePage: React.FC = () => {
                     {searchResults.length > 0 && (
                         <div className="search-results">
                             <ul className="results-list">
-                                {searchResults.map(user => (
-                                    <li key={user.id} className="result-item">
-                                        {user.username}
+                                {searchResults.map(chat => (
+                                    <li key={chat._id} className="result-item">
+                                        {chat.chatName}
                                         <button onClick={() => addFriend(user)} className="primary-button">Add Friend</button>
                                     </li>
                                 ))}
@@ -79,13 +80,13 @@ const HomePage: React.FC = () => {
 
                 <h2 className="section-title">Your Friends</h2>
                 <div className="friends-list">
-                    {friends.map(friend => (
+                    {chats.map(chat => (
                         <div
-                            key={friend.id}
-                            className={`friend-box ${selectedFriend?.id === friend.id ? 'selected' : ''}`}
-                            onClick={() => handleFriendClick(friend)}
+                            key={chat._id}
+                            className={`friend-box ${selectedFriend?._id === chat._id ? 'selected' : ''}`}
+                            onClick={() => handleFriendClick(chat)}
                         >
-                            {friend.username}
+                            {chat.chatName}
                         </div>
                     ))}
                 </div>
@@ -103,7 +104,7 @@ const HomePage: React.FC = () => {
             <div className="chat-container">
                 {selectedFriend ? (
                     <div className="chat-window">
-                        <h2>Chat with {selectedFriend.username}</h2>
+                        <h2>{selectedFriend.chatName}</h2>
                         <div className="messages">
                             <p>No messages yet!</p>
                         </div>

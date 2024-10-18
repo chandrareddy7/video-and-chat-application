@@ -392,6 +392,10 @@ body {
   position: relative; /* Positioning context for the menu */
 }
 
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
 /* App Title */
 .app-title {
   font-size: 1.8rem;
@@ -401,6 +405,10 @@ body {
 /* Search Bar */
 .search-form {
   display: flex;
+}
+
+.search-form input{
+  width: 100%;
 }
 
 .input-field {
