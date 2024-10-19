@@ -262,6 +262,17 @@ input[type="checkbox"] {
   background-color: #3a80d2;
 }
 
+.submit-button.guest{
+  background-color: red;
+  margin: 4px 0;
+}
+
+.submit-button.guest:hover{
+  background-color: white;
+  color: black;
+  margin: 4px 0;
+}
+
 /* Form switch link (between Login/Register) */
 .switch-form-link {
   text-align: center;
@@ -390,10 +401,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   position: relative; /* Positioning context for the menu */
-}
-
-.sidebar::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: none;
 }
 
 /* App Title */

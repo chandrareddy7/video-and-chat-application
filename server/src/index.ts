@@ -2,13 +2,17 @@ import express from 'express';
 import * as http from 'http'
 import {Server, Socket} from "socket.io"
 import * as dotenv from 'dotenv';
-import {chats} from "./data/data"
 import cors from "cors"
+import connectDB from './config/db';
+import userRouter from "./routes/userRoute"
+import { errorHandler, notFound } from './middlewares/errorMiddleware';
 
 dotenv.config();
+connectDB();
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server);
 const port = process.env.PORT;
@@ -35,18 +39,10 @@ io.on("connection", (socket: Socket) => {
   });
 });
 
-app.get('/', (req, res ) => {
-  res.send('Chat application server http');
-});
+app.use('/api/user', userRouter);
 
-app.get('/api/chat', (req, res) => {
-  res.send(chats)
-})
-
-app.get('/api/chat/:id', (req, res) => {
-  const singleChat = chats.find(c => c._id === req.params.id);
-  res.send(singleChat);
-})
+app.use(notFound)
+app.use(errorHandler)
 
 server.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

@@ -118,4 +118,27 @@ export const chats : chat[]  = [
         email: "mishra@example.com",
       },
     },
+    {
+      isGroupChat: true,
+      users: [
+        {
+          name: "Under taker",
+          email: "under@example.com",
+        },
+        {
+          name: "Rey misterio",
+          email: "misterior@example.com",
+        },
+        {
+          name: "Brain",
+          email: "brain@example.com",
+        },
+      ],
+      _id: "617a518c4081150016472c64",
+      chatName: "Money in the Bank",
+      groupAdmin: {
+        name: "Rey misterio",
+        email: "misterio@example.com",
+      },
+    },
   ];
