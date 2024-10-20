@@ -1,10 +1,19 @@
 import React, { useState, FormEvent, KeyboardEvent, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEllipsisV } from 'react-icons/fa';
 import axios from 'axios';
 import { Chat } from '../index.d.js';
 
 const HomePage: React.FC = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+       const userInfoString = localStorage.getItem('userInfo');
+       if (userInfoString) {
+       navigate("/home");
+    }
+    },[navigate])
 
     const [chats, setChats] = useState<Chat[]>([])
 
