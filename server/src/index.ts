@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv';
 import cors from "cors"
 import connectDB from './config/db';
 import userRouter from "./routes/userRoute"
+import chatRouter from "./routes/chatRouter"
 import { errorHandler, notFound } from './middlewares/errorMiddleware';
 
 dotenv.config();
@@ -40,6 +41,7 @@ io.on("connection", (socket: Socket) => {
 });
 
 app.use('/api/user', userRouter);
+app.use('/api/chats', chatRouter)
 
 app.use(notFound)
 app.use(errorHandler)

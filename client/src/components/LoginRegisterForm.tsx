@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from 'axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 type User = {
@@ -33,7 +33,6 @@ const LoginRegisterForm: React.FC = () => {
     } catch (error) {
       // TODO: Add a toast saying login failed and retry.
     }
-
   };
 
   const handleRegister = async (user: User) => {
